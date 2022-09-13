@@ -8,6 +8,7 @@ describe('My First Test', () => {
     cy.get('.products').as('productLocator') // can cahnge the name instead of cahngeing everywhere
 
     cy.get('@productLocator').find('.product').should('have.length', 4)
+    // .contains method will look for the text
     cy.get('@productLocator').find('.product').eq(2).contains('ADD TO CART').click().then(function () {
       console.log('this is printed after added')
       // this is non cypress command and it prints only when this is resolved

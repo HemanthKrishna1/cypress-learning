@@ -12,7 +12,10 @@ describe('My Second Test', () => {
         $e1.find('button').click();
       }
     })
-
+    cy.get('.cart-icon > img').click()
+    cy.contains('PROCEED TO CHECKOUT').click()
+    cy.contains('Place Order').click()
+    // cy.get(':nth-child(14)').click()
   })
 
 })

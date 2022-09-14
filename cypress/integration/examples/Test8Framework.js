@@ -1,7 +1,8 @@
 /// <reference types="Cypress" />
-import HomePage from '../pageObjects/HomePage'
-import ProductPage from '../pageObjects/ProductPage'
+import HomePage from '../../support/pageObjects/HomePage'
+import ProductPage from '../../support/pageObjects/ProductPage'
 
+// Change URL from command: node_modules/.bin/cypress run --spec cypress/integration/examples/Test8Framework.js --env url=https://google.com --headed
 describe('My First Test', () => {
 
   before(function () {

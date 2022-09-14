@@ -29,7 +29,25 @@ describe('My First Test', () => {
       cy.selectProduct(element)
     })
 
+
     productPage.checkOutButton().click()
+
+    var sum = Number(0)
+    cy.get('tr td:nth-child(4) strong').each(($el, index, $list) => {
+      const amount = $el.text()
+      var res = amount.split(" ")
+      res = res[1].trim()
+      sum += Number(res)
+    }).then(function () {
+      cy.log(sum)
+    })
+    cy.get('h3 strong').then(function ($el) {
+      const amount = $el.text()
+      var res = amount.split(" ")
+      var total = res[1].trim()
+      expect(Number(total)).to.equal(sum)
+    })
+
     cy.contains('Checkout').click()
     cy.get('#country').type('India')
     cy.get('.suggestions > ul > li > a').click()
@@ -39,11 +57,11 @@ describe('My First Test', () => {
 
     cy.get('.alert').then(function (el) {
       const txt = el.text();
+
       expect(txt.includes('Success')).to.be.true
     })
     // cy.selectProduct('Blackberry')
 
     // cy.selectProduct('Nokia Edge')
-
   })
 })

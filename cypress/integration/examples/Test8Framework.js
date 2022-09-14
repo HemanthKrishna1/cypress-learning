@@ -12,16 +12,16 @@ describe('My First Test', () => {
     const homePage = new HomePage()
     cy.visit('https://rahulshettyacademy.com/angularpractice/');
 
-    cy.get(":nth-child(1) > .form-control").type(this.data.name)
-    cy.get('select').select(this.data.gender)
+    homePage.getEditBox().type(this.data.name)
+    homePage.getGender().select(this.data.gender)
 
-    cy.get(':nth-child(4) > .ng-untouched').should('have.value', this.data.name)
+    homePage.getTwoDateBinding().should('have.value', this.data.name)
 
-    cy.get(":nth-child(1) > .form-control").should('have.attr', 'minlength', '2')
-    cy.get('#inlineRadio3').should('be.disabled')
+    homePage.getEditBox().should('have.attr', 'minlength', '2')
 
-    cy.pause()
-    cy.get(':nth-child(2) > .nav-link').click()
+    homePage.getEntrepreneaur().should('be.disabled')
+
+    homePage.getShopTab().click()
 
     this.data.productName.forEach(function (element) {
       cy.selectProduct(element)

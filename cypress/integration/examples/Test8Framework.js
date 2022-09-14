@@ -19,11 +19,16 @@ describe('My First Test', () => {
     cy.get(":nth-child(1) > .form-control").should('have.attr', 'minlength', '2')
     cy.get('#inlineRadio3').should('be.disabled')
 
-
+    cy.pause()
     cy.get(':nth-child(2) > .nav-link').click()
 
-    cy.selectProduct('Blackberry')
-    cy.selectProduct('Nokia Edge')
+    this.data.productName.forEach(function (element) {
+      cy.selectProduct(element)
+    })
+    // cy.selectProduct('Blackberry')
+
+    // cy.selectProduct('Nokia Edge')
+
 
   })
 })

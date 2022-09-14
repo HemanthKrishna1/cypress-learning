@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-
+import HomePage from '../pageObjects/HomePage'
 describe('My First Test', () => {
 
   before(function () {
@@ -9,6 +9,7 @@ describe('My First Test', () => {
     })
   })
   it('Does not do much!', function () {
+    const homePage = new HomePage()
     cy.visit('https://rahulshettyacademy.com/angularpractice/');
 
     cy.get(":nth-child(1) > .form-control").type(this.data.name)
@@ -25,6 +26,7 @@ describe('My First Test', () => {
     this.data.productName.forEach(function (element) {
       cy.selectProduct(element)
     })
+
     // cy.selectProduct('Blackberry')
 
     // cy.selectProduct('Nokia Edge')

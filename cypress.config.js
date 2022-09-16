@@ -4,6 +4,7 @@ module.exports = defineConfig({
   projectId: 'g4wji6',
   defaultCommandTimeout: 8000,
   pageLoadTimeout: 30000,
+  reporter: 'mochawesome',
   env: {
     url: 'https://rahulshettyacademy.com',
   },

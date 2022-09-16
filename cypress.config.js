@@ -5,6 +5,9 @@ module.exports = defineConfig({
   defaultCommandTimeout: 8000,
   pageLoadTimeout: 30000,
   reporter: 'mochawesome',
+  retries: {
+    runMode: 1,
+  },
   env: {
     url: 'https://rahulshettyacademy.com',
   },

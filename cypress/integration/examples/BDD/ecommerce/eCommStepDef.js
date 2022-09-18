@@ -1,3 +1,6 @@
+/// <reference types="Cypress" />
+import HomePage from '../../../../support/pageObjects/HomePage'
+import ProductPage from '../../../../support/pageObjects/ProductPage'
 import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps'
 const homePage = new HomePage()
 const productPage = new ProductPage()
@@ -6,7 +9,7 @@ Given('I open Ecommerce Page', () => {
   cy.visit(Cypress.env('url') + '/angularpractice/');
 })
 
-When('I add items to Cart', () => {
+When('I add items to Cart', function () {
   homePage.getShopTab().click()
   this.data.productName.forEach(function (element) {
     cy.selectProduct(element)

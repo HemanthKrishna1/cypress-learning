@@ -2,6 +2,11 @@
 import HomePage from '../../../../support/pageObjects/HomePage'
 import ProductPage from '../../../../support/pageObjects/ProductPage'
 import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps'
+//cypress run --spec cypress\integration\examples\BDD\*.feature --headed --browser chrome
+//npx cypress-tags run -e TAGS="@Smoke" --headed --browser chrome
+// add cucumber report options in package.json ->output.json
+// use html report plugin /create js file (pass the details of output.json)
+// run js file
 const homePage = new HomePage()
 const productPage = new ProductPage()
 let name

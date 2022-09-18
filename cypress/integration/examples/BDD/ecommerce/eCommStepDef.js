@@ -4,7 +4,7 @@ import ProductPage from '../../../../support/pageObjects/ProductPage'
 import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps'
 const homePage = new HomePage()
 const productPage = new ProductPage()
-
+let name
 Given('I open Ecommerce Page', () => {
   cy.visit(Cypress.env('url') + '/angularpractice/');
 })
@@ -50,3 +50,20 @@ Then('select the country submit and verify Thankyou', () => {
   })
 })
 
+When('I fill the form details', function (dataTable) {
+  name = dataTable.rawTable[1][0]
+  homePage.getEditBox().type(name)
+  homePage.getGender().select(dataTable.rawTable[1][1])
+})
+
+Then('Validate the forms behavious', function () {
+  homePage.getTwoDateBinding().should('have.value', name)
+  homePage.getEditBox().should('have.attr', 'minlength', '2')
+  homePage.getEntrepreneaur().should('be.disabled')
+  Cypress.config('defaultCommandTimeout', 8000)
+
+})
+
+And('select the shop Page', function () {
+  homePage.getShopTab().click()
+})

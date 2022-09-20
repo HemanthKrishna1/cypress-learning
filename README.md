@@ -1,6 +1,6 @@
 # cypress-learning
 
-# BY rahulshettyacademy
+# Practiced from rahulshettyacademy
 What is Cypress?
 · Cypress is a next generation front end Automation testing tool built for the modern web applications
 How Cypress is Unique from other Automation tools?
